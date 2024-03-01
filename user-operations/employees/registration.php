@@ -5,7 +5,11 @@
     $db = new DB();
     $conn = $db->connect();
 
-    if(isset($_POST['username']) && isset($_POST['password'])){
+    // TODO: ВОВА НЕ ЗАБУДЬ ПОД EMPLOYEE ПЕРЕДЕЛАТЬ!
+    // TODO: ВОВА НЕ ЗАБУДЬ ПОД EMPLOYEE ПЕРЕДЕЛАТЬ!
+    // TODO: ВОВА НЕ ЗАБУДЬ ПОД EMPLOYEE ПЕРЕДЕЛАТЬ!
+
+    /*if(isset($_POST['username']) && isset($_POST['password'])){
         $username = $_POST['username'];
         $password = $_POST['password'];
         $company_name = $_POST['company_name'];
@@ -52,7 +56,7 @@
         }
     } else {
         $response = "Ошибка: не все поля формы заполнены";
-    }
+    }*/
     
     echo json_encode($response, JSON_UNESCAPED_UNICODE);
     $conn->close();
