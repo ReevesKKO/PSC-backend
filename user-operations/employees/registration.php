@@ -29,14 +29,13 @@
             }
             else {
                 $password_hash = passwordHash($password);
-                $insert = mysqli_query($conn, "INSERT INTO accounts(username, password) VALUES('$username;, $password_hash');");
+                $insert = mysqli_query($conn, "INSERT INTO accounts(username, password) VALUES('$username', '$password_hash');");
 
                 if (!$insert) {
                     $response = "Ошибка: не удалось добавить аккаунт пользователя.";
                 }
-                else {
-                    $search_id = mysqli_query($conn, "SELECT * FROM accounts WHERE(username='$username');");
-                    $account_id = $search_id->$id;
+                else {  
+                    $account_id = mysqli_insert_id($conn);
 
                     if (isset($account_id)) {
                         $insert_client = mysqli_query($conn,"INSERT INTO clients(company_name, contact_person, email, phone_num, account_id) VALUES('$company_name', '$contact_person', '$email', '$phone_num', '$account_id');");
