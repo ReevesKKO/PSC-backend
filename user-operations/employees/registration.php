@@ -16,7 +16,7 @@
         $position = $_POST['position'];
         $salary = $_POST['salary'];
         $hire_date = $_POST['hire_date'];
-        $contact_info = $_POST['contact_info'];
+        $email = $_POST['email'];
 
         $check_username = mysqli_query($conn, "SELECT * FROM accounts WHERE (username = '$username');");
 
@@ -34,10 +34,10 @@
             else {
                 $account_id = mysqli_insert_id($conn);
                 if (isset($account_id)) {
-                    $insert_client = mysqli_query($conn,"INSERT INTO employees(full_name, position, salary, hire_date, contact_info) VALUES('$full_name', '$position', '$salary', '$hire_date', '$contact_info');");
+                    $insert_client = mysqli_query($conn,"INSERT INTO employees(full_name, position, salary, hire_date, email) VALUES('$full_name', '$position', '$salary', '$hire_date', '$email');");
                     if (!$insert_client) {
                         $response->error_code = 3;
-                        $response->description = "Ошибка: не удалось добавить сотрудника..";
+                        $response->description = "Ошибка: не удалось добавить сотрудника.";
                     }
                     else {
                         $response->code = 200;
