@@ -19,7 +19,7 @@
             $dbusername = $row['username'];
             $dbpassword = $row['password'];
             $user_id = $row['id'];
-            if ($dbusername == $username && verifyPassword($password, $dbpassword)) {
+            if ($dbusername == $login && verifyPassword($password, $dbpassword)) {
                 $response->code = 200;
                 $response->description = "Успешная авторизация.";
                 $response->JWT = jwtEncodeHS256("user_id", $user_id);
