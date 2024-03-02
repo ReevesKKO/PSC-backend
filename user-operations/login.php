@@ -2,7 +2,7 @@
     include($_SERVER['DOCUMENT_ROOT'].'/PSC/hash/hash.php');
     include($_SERVER['DOCUMENT_ROOT'].'/PSC/db_connect.php');
     include($_SERVER['DOCUMENT_ROOT'].'/PSC/JWT/jwt.php');
-    include($_SERVER['DOCUMENT_ROOT'].'/logger/logger.php');
+    include($_SERVER['DOCUMENT_ROOT'].'/PSC/logger/logger.php');
 
     $response = new stdClass();
     $response->code = 400;
