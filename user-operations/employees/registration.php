@@ -18,7 +18,7 @@
         $phone_num = $_POST['phone_num'];
 
         $check_username = mysqli_query($conn, "SELECT * FROM accounts WHERE (username = '$username');");
-        
+
         if(mysqli_num_rows($check_username)>=1) {
             $response = "Ошибка: пользователь с таким username уже существует.";
         }
@@ -34,12 +34,12 @@
                 if (!$insert) {
                     $response = "Ошибка: не удалось добавить аккаунт пользователя.";
                 }
-                else {  
+                else {
                     $account_id = mysqli_insert_id($conn);
 
                     if (isset($account_id)) {
                         $insert_client = mysqli_query($conn,"INSERT INTO clients(company_name, contact_person, email, phone_num, account_id) VALUES('$company_name', '$contact_person', '$email', '$phone_num', '$account_id');");
-                        
+
                         if (!$insert_client) {
                             $response = "Ошибка: не удалось добавить клиента.";
                         }
@@ -50,12 +50,12 @@
                     else {
                         $response = "Ошибка: не удалось найти account_id для добавления клиента.";
                     }
-                } 
+                }
             }
         }
     } else {
         $response = "Ошибка: не все поля формы заполнены";
     }*/
-    
+
     echo json_encode($response, JSON_UNESCAPED_UNICODE);
     $conn->close();
