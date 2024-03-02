@@ -5,9 +5,7 @@
     $db = new DB();
     $conn = $db->connect();
 
-    // TODO: ВОВА НЕ ЗАБУДЬ ПОД EMPLOYEE ПЕРЕДЕЛАТЬ!
-    // TODO: ВОВА НЕ ЗАБУДЬ ПОД EMPLOYEE ПЕРЕДЕЛАТЬ!
-    // TODO: ВОВА НЕ ЗАБУДЬ ПОД EMPLOYEE ПЕРЕДЕЛАТЬ!
+    // TODO: ПЕРЕДЕЛАТЬ ПОД EMPLOYEE
 
     /*if(isset($_POST['username']) && isset($_POST['password'])){
         $username = $_POST['username'];
