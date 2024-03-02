@@ -9,13 +9,7 @@
     $db = new DB();
     $conn = $db->connect();
 
-<<<<<<< HEAD
-    // TODO: ПЕРЕДЕЛАТЬ ПОД EMPLOYEE
-
-    /*if(isset($_POST['username']) && isset($_POST['password'])){
-=======
     if(isset($_POST['username']) && isset($_POST['password'])){
->>>>>>> 5cee8b1a94da1e2ee0122e9bf84be25b060521b5
         $username = $_POST['username'];
         $password = $_POST['password'];
         $full_name = $_POST['full_name'];

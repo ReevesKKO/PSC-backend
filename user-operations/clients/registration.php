@@ -54,7 +54,7 @@
                     }
                     else {
                       $response->code = 500;
-                      $resonse->error_code = 1;
+                      $response->error_code = 1;
                       $response->description = "Ошибка: не удалось найти account_id для добавления клиента.";
                     }
                 }
