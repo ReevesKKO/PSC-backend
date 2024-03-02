@@ -1,7 +1,7 @@
 <?php
   class Logger {
     private static function addEntry($str) {
-      $handle = fopen('./logger/logs.log', 'a');
+      $handle = fopen('logs.log', 'a');
       fwrite($handle, sprintf("%s %s\n", date('c'), $str));
       fclose($handle);
     }

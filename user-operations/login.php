@@ -13,7 +13,6 @@
     if(isset($_POST['login']) && isset($_POST['password'])){
         $login = $_POST['login'];
         $password = $_POST['password'];
-
         $check_user = mysqli_query($conn, "SELECT * FROM accounts WHERE (username = '$login');");
         $row = mysqli_fetch_assoc($check_user);
         if (mysqli_num_rows($check_user) != 0) {
