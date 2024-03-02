@@ -2,6 +2,7 @@
     include($_SERVER['DOCUMENT_ROOT'].'/PSC/hash/hash.php');
     include($_SERVER['DOCUMENT_ROOT'].'/PSC/db_connect.php');
     include($_SERVER['DOCUMENT_ROOT'].'/PSC/JWT/jwt.php');
+    include($_SERVER['DOCUMENT_ROOT'].'/logger/logger.php');
 
     $response = new stdClass();
     $response->code = 400;
@@ -23,10 +24,12 @@
                 $response->code = 200;
                 $response->description = "Успешная авторизация.";
                 $response->JWT = jwtEncodeHS256("user_id", $user_id);
+                Logger::loginSuccessfully($login);
             }
             else {
               $response->error_code = 1;
               $response->description = "Ошибка: неверный пароль или логин.";
+              Logger::loginErrorWarn($login);
             }
         }
         else {
