@@ -18,11 +18,12 @@
         if (mysqli_num_rows($check_user) != 0) {
             $dbusername = $row['username'];
             $dbpassword = $row['password'];
+            $role = $row['account_type'];
             $user_id = $row['id'];
             if ($dbusername == $login && verifyPassword($password, $dbpassword)) {
                 $response->code = 200;
                 $response->description = "Успешная авторизация.";
-                $response->JWT = jwtEncodeHS256("user_id", $user_id);
+                $response->JWT = jwtEncodeHS256($user_id, $role);
                 Logger::loginSuccessfully($login);
             }
             else {
