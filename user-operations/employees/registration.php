@@ -26,7 +26,7 @@
         }
         else {
             $password_hash = passwordHash($password);
-            $insert = mysqli_query($conn, "INSERT INTO accounts(username, password) VALUES('$username', '$password_hash');");
+            $insert = mysqli_query($conn, "INSERT INTO accounts(username, password, account_type) VALUES('$username', '$password_hash', 'employee');");
             if (!$insert) {
                 $response->error_code = 2;
                 $response->description = "Ошибка: не удалось добавить аккаунт пользователя.";
