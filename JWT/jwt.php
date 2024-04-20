@@ -1,6 +1,6 @@
 <?php
   function jwtEncodeHS256($user_id, $account_type) {
-    $secret = "REEVESPEDIK";
+    $secret = "REEVES";
     $alg = "HS256";
     $typ = "JWT";
 

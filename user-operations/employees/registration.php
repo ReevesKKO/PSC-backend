@@ -36,7 +36,8 @@
                 if (isset($account_id)) {
                     $insert_client = mysqli_query($conn,"INSERT INTO employees(full_name, position, salary, hire_date, email) VALUES('$full_name', '$position', '$salary', '$hire_date', '$email');");
                     if (!$insert_client) {
-                        $response->error_code = 3;
+                        $response->code = 500;
+                        $response->error_code = 2;
                         $response->description = "Ошибка: не удалось добавить сотрудника.";
                     }
                     else {
@@ -52,7 +53,7 @@
             }
         }
     } else {
-        $response->error_code = 5;
+        $response->error_code = 3;
         $response->description = "Ошибка: не все поля формы заполнены";
     }
 

@@ -34,7 +34,8 @@
                 $insert = mysqli_query($conn, "INSERT INTO accounts(username, password) VALUES('$username', '$password_hash');");
 
                 if (!$insert) {
-                    $response->error_code = 3;
+                    $response->code = 500;
+                    $response->error_code = 1;
                     $response->description = "Ошибка: не удалось добавить аккаунт пользователя.";
                 }
                 else {
@@ -44,7 +45,7 @@
                         $insert_client = mysqli_query($conn,"INSERT INTO clients(company_name, contact_person, email, phone_num, account_id) VALUES('$company_name', '$contact_person', '$email', '$phone_num', '$account_id');");
 
                         if (!$insert_client) {
-                            $response->error_code = 4;
+                            $response->error_code = 2;
                             $response->description = "Ошибка: не удалось добавить клиента.";
                         }
                         else {
@@ -54,14 +55,14 @@
                     }
                     else {
                       $response->code = 500;
-                      $response->error_code = 1;
+                      $response->error_code = 3;
                       $response->description = "Ошибка: не удалось найти account_id для добавления клиента.";
                     }
                 }
             }
         }
     } else {
-        $response->error_code = 6;
+        $response->error_code = 3;
         $response->description = "Ошибка: не все поля формы заполнены";
     }
 
