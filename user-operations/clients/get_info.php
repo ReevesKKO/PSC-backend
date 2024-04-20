@@ -24,12 +24,17 @@
               $response->description = "Ошибка: клиент с таким username не найден.";
             }
             else {
+              while ($row = mysqli_fetch_assoc($check_client)) {
+                  $tmp[] = $row;
+              }
+              $response->client_info = $tmp;
               $response->code = 200;
               $response->client_id = mysqli_fetch_assoc($check_client)['id'];
+              /*$response->client_id = mysqli_fetch_assoc($check_client)['id'];
               $response->company_name = mysqli_fetch_assoc($check_client)['company_name'];
               $response->contact_person = mysqli_fetch_assoc($check_client)['contact_person'];
               $response->email = mysqli_fetch_assoc($check_client)['email'];
-              $response->phone_num = mysqli_fetch_assoc($check_client)['phone_num'];
+              $response->phone_num = mysqli_fetch_assoc($check_client)['phone_num'];*/
             }
         }
     } else {
