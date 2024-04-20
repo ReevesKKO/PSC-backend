@@ -19,7 +19,7 @@
             $user_id = mysqli_fetch_assoc($check_username)['id'];
             $check_client = mysqli_query($conn, "SELECT * FROM clients WHERE (account_id = '$user_id');");
 
-            if(mysqli_num_rows()<=0) {
+            if(mysqli_num_rows($check_client)<=0) {
               $response->error_code = 2;
               $response->description = "Ошибка: клиент с таким username не найден.";
             }
