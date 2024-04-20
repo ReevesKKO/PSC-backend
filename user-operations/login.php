@@ -29,7 +29,7 @@
             else {
               $response->error_code = 1;
               $response->description = "Ошибка: неверный пароль или логин.";
-              Logger::loginErrorWarn($login);
+              Logger::loginErrorWarn($login); #Ошибка с паролем или логином
             }
         }
         else {
